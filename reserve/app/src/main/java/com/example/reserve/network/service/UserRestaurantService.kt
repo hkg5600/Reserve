@@ -1,5 +1,6 @@
 package com.example.reserve.network.service
 
+import android.media.session.MediaSession
 import androidx.core.view.MarginLayoutParamsCompat
 import com.example.reserve.network.api.UserRestaurantApi
 import com.example.reserve.network.model.UserMenu
@@ -7,6 +8,7 @@ import com.example.reserve.network.request.MarketName
 import com.example.reserve.network.request.Reservation
 import com.example.reserve.network.response.MarketInfo
 import com.example.reserve.network.response.MarketLIst
+import com.example.reserve.network.response.ReservationList
 import com.example.reserve.utils.TokenObject
 import io.reactivex.Single
 import retrofit2.Response
@@ -15,9 +17,12 @@ interface UserRestaurantService {
     fun userReservation(marketId: Int, menu: ArrayList<UserMenu>) : Single<Response<Any>>
     fun getMarketInfo(marketId: Int) : Single<Response<MarketInfo>>
     fun searchMarket(marketName: String) : Single<Response<MarketLIst>>
+    fun getReservationList() : Single<Response<ReservationList>>
 }
 
 class UserRestaurantServiceImpl(private val api: UserRestaurantApi) : UserRestaurantService {
+
+    override fun getReservationList() = api.getReservationList(TokenObject.token!!)
 
     override fun searchMarket(marketName: String) = api.searchMarket(TokenObject.token!!, MarketName(marketName))
 

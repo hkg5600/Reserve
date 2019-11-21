@@ -4,6 +4,7 @@ import com.example.reserve.network.request.MarketName
 import com.example.reserve.network.request.Reservation
 import com.example.reserve.network.response.MarketInfo
 import com.example.reserve.network.response.MarketLIst
+import com.example.reserve.network.response.ReservationList
 import io.reactivex.Single
 import retrofit2.http.*
 
@@ -17,4 +18,7 @@ interface UserRestaurantApi {
 
     @POST("/service/markets")
     fun searchMarket(@Header("Authorization") token: String, @Body market: MarketName) : Single<retrofit2.Response<MarketLIst>>
+
+    @GET("/service/reservation")
+    fun getReservationList(@Header("Authorization") token: String) : Single<retrofit2.Response<ReservationList>>
 }
