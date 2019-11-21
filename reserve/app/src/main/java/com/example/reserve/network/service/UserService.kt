@@ -1,6 +1,7 @@
 package com.example.reserve.network.service
 
 import com.example.reserve.network.api.UserApi
+import com.example.reserve.network.request.RegisterRequest
 import com.example.reserve.network.request.UserLogin
 import com.example.reserve.network.request.UserPoint
 import com.example.reserve.network.response.TokenResponse
@@ -10,12 +11,14 @@ import io.reactivex.Single
 import retrofit2.Response
 
 interface UserService {
+    fun register(id: String, pw: String, name: String, phoneNum: String, type: Int) : Single<Response<Any>>
     fun login(id: String, pw: String) : Single<Response<TokenResponse>>
     fun getUserInfo() : Single<Response<UserInfo>>
     fun addUserPoint(point: Int) : Single<Response<Any>>
 }
 
 class UserServiceImpl(private val api: UserApi) : UserService {
+    override fun register(id: String, pw: String, name: String, phoneNum: String, type: Int) = api.register(RegisterRequest(id, pw, name, phoneNum, type))
 
     override fun addUserPoint(point: Int) = api.addUserPoint(TokenObject.token!!, UserPoint(point))
 

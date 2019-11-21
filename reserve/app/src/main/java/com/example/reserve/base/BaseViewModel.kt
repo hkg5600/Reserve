@@ -88,7 +88,8 @@ abstract class BaseViewModel(val application: Application) : ViewModel() {
         t as retrofit2.Response<String>
         if (t.isSuccessful) {
             if (t.code() == 200 || t.code() == 201) {
-                message.value = t.message()
+                //message.value = t.message()
+                success.call()
             } else {
                 Log.d("Response Error: ", t.errorBody().toString())
                 error.value = t.code().toString()

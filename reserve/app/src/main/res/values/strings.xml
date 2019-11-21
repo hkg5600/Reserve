@@ -5,4 +5,9 @@
     <string name="string_test">테스트</string>
     <string name="login_text">로그인</string>
     <string name="text_login">주문하러 가기</string>
+    <string name="text_password_hint">PASSWORD</string>
+    <string name="text_id_hint">ID</string>
+    <string name="text_register">회원가입</string>
+    <string name="text_name">NAME</string>
+    <string name="text_phone_number">PHONE NUMBER</string>
 </resources>

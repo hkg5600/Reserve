@@ -1,5 +1,6 @@
 package com.example.reserve.network.api
 
+import com.example.reserve.network.request.RegisterRequest
 import com.example.reserve.network.request.UserLogin
 import com.example.reserve.network.request.UserPoint
 import com.example.reserve.network.response.TokenResponse
@@ -8,6 +9,9 @@ import io.reactivex.Single
 import retrofit2.http.*
 
 interface UserApi {
+
+    @POST("/user/register")
+    fun register(@Body info: RegisterRequest) : Single<retrofit2.Response<Any>>
 
     @POST("/user/auth")
     fun login(@Body login: UserLogin) : Single<retrofit2.Response<TokenResponse>>
