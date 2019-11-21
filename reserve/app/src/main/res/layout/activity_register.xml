@@ -66,7 +66,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/text_view_login_explain"
-                android:backgroundTint="#000000"/>
+                android:singleLine="true"
+                android:backgroundTint="@color/coral"/>
 
             <EditText
                 android:id="@+id/edit_text_pw"
@@ -75,10 +76,11 @@
                 android:layout_marginStart="60dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginEnd="60dp"
-                android:backgroundTint="#000000"
+                android:backgroundTint="@color/coral"
                 android:hint="@string/text_password_hint"
                 android:text="@={vm.pw}"
                 android:textSize="20sp"
+                android:singleLine="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edit_text_id" />
@@ -90,8 +92,9 @@
                 android:layout_marginStart="60dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginEnd="60dp"
-                android:backgroundTint="#000000"
+                android:backgroundTint="@color/coral"
                 android:hint="@string/text_name"
+                android:singleLine="true"
                 android:text="@={vm.name}"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -105,9 +108,10 @@
                 android:layout_marginStart="60dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginEnd="60dp"
-                android:backgroundTint="#000000"
+                android:singleLine="true"
+                android:backgroundTint="@color/coral"
                 android:hint="@string/text_phone_number"
-                android:inputType="phone"
+                android:inputType="number"
                 android:text="@={vm.phoneNum}"
                 android:textSize="20sp"
                 app:layout_anchor="@+id/page_holder"
@@ -120,7 +124,7 @@
                 android:id="@+id/button_register"
                 android:layout_width="168dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="36dp"
                 android:background="@drawable/login_button_background"
                 android:clickable="true"
                 android:focusable="true"
@@ -130,6 +134,7 @@
                 android:textColor="#000000"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edit_text_name" />
 
@@ -141,7 +146,10 @@
                 android:src="@drawable/top_logo_fix"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button_register"
+                app:layout_constraintVertical_bias="0.843" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

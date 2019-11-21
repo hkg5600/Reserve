@@ -9,5 +9,5 @@
     <string name="text_id_hint">ID</string>
     <string name="text_register">회원가입</string>
     <string name="text_name">NAME</string>
-    <string name="text_phone_number">PHONE NUMBER</string>
+    <string name="text_phone_number">PHONE NUMBER (- 포함) </string>
 </resources>

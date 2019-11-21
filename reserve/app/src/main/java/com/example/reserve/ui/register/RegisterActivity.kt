@@ -1,6 +1,7 @@
 package com.example.reserve.ui.register
 
 import android.content.Intent
+import android.view.WindowManager
 import androidx.lifecycle.Observer
 import com.example.reserve.R
 import com.example.reserve.base.BaseActivity
@@ -16,7 +17,7 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding, RegisterActivityV
 
 
     override fun initView() {
-
+        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
     }
 
     override fun initObserver() {

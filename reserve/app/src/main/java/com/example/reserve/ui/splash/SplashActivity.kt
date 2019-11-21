@@ -42,6 +42,7 @@ class SplashActivity : AppCompatActivity() {
         })
 
         viewModel.error.observe(this, Observer {
+            Toast.makeText(this, "세션이 만료되었습니다", Toast.LENGTH_SHORT).show()
             startActivity(Intent(this, SelectorActivity::class.java))
         })
     }
