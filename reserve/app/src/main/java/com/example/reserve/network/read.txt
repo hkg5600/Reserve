@@ -1,0 +1,5 @@
+api (interface)
+model (response model)
+request (request json body using model)
+response (response json body using model)
+service (method using api interface)

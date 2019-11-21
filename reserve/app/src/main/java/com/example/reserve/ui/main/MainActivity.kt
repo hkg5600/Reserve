@@ -1,7 +1,8 @@
-package com.example.reserve
+package com.example.reserve.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.reserve.R
 
 class MainActivity : AppCompatActivity() {
 
