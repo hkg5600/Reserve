@@ -1,7 +1,9 @@
 package com.example.reserve.ui.reservation
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.Observer
 import com.example.reserve.R
 import com.example.reserve.adapter.MarketListAdapter
@@ -43,7 +45,12 @@ class ReservationActivity : BaseActivity<ActivityReservationBinding, Reservation
     }
 
     override fun initListener() {
+        marketAdapter.onItemClickListener = object : MarketListAdapter.OnItemClickListener {
+            override fun onClick(view: View, position: Int, holder: MarketListAdapter.MarketListHolder) {
+                //startActivityForResult(Intent(this, ))
+            }
 
+        }
     }
 
     override fun initViewModel() {

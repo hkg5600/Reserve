@@ -1,6 +1,7 @@
 package com.example.reserve.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -23,13 +24,31 @@ class MarketListAdapter : RecyclerView.Adapter<MarketListAdapter.MarketListHolde
     override fun getItemCount() = marketList.size
 
     override fun onBindViewHolder(holder: MarketListHolder, position: Int) {
+
+        if (onItemClickListener != null) {
+            holder.makeReservation.setOnClickListener { v ->
+                onItemClickListener?.onClick(v, position, holder)
+            }
+        }
+
         holder.bind(marketList[position])
     }
 
 
     inner class MarketListHolder(private val binding: MarketItemBinding) : RecyclerView.ViewHolder(binding.root) {
+        val makeReservation = binding.clickHolder
+
         fun bind(item: Market) {
             binding.item = item
         }
+    }
+
+    var onItemClickListener: OnItemClickListener? = null
+    interface OnItemClickListener {
+        fun onClick(
+            view: View,
+            position: Int,
+            holder: MarketListHolder
+        )
     }
 }
