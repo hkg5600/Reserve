@@ -1,7 +1,10 @@
 package com.example.reserve.di
 
 import com.example.reserve.network.api.UserApi
+import com.example.reserve.network.api.UserRestaurantApi
 import com.example.reserve.network.response.TokenResponse
+import com.example.reserve.network.service.UserRestaurantService
+import com.example.reserve.network.service.UserRestaurantServiceImpl
 import com.example.reserve.network.service.UserService
 import com.example.reserve.network.service.UserServiceImpl
 import com.example.reserve.room.repository.TokenRepository
@@ -22,13 +25,16 @@ val retrofit: Retrofit = Retrofit
     .build()
 
 private val userApi: UserApi = retrofit.create(UserApi::class.java)
+private val userRestaurantApi: UserRestaurantApi = retrofit.create(UserRestaurantApi::class.java)
 
 val networkModule = module {
     single { userApi }
+    single { userRestaurantApi }
 }
 
 var serviceModel = module {
     factory<UserService> { UserServiceImpl(get()) }
+    factory<UserRestaurantService> { UserRestaurantServiceImpl(get()) }
 }
 
 var viewModelPart = module {
