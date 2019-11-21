@@ -5,7 +5,10 @@ import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import com.example.reserve.network.Response
+import com.example.reserve.room.model.Token
+import com.example.reserve.room.repository.TokenRepository
 import com.example.reserve.utils.SingleLiveEvent
+import com.example.reserve.utils.TokenObject
 import io.reactivex.Completable
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -14,9 +17,11 @@ import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
 
 abstract class BaseViewModel(val application: Application) : ViewModel() {
-    //val tokenRepository = TokenRepository(application)
-    val success: SingleLiveEvent<Any> = SingleLiveEvent()
+    val tokenRepository = TokenRepository(application)
     private val compositeDisposable = CompositeDisposable()
+    val tokenSuccess: SingleLiveEvent<Any> = SingleLiveEvent()
+    val tokenError: SingleLiveEvent<String> = SingleLiveEvent()
+    val success: SingleLiveEvent<Any> = SingleLiveEvent()
     val roomSuccess: SingleLiveEvent<String> = SingleLiveEvent()
     val error: SingleLiveEvent<String> = SingleLiveEvent()
     val message: SingleLiveEvent<String> = SingleLiveEvent()
@@ -32,10 +37,8 @@ abstract class BaseViewModel(val application: Application) : ViewModel() {
     fun addRoomDisposable(disposable: Completable, msg: String) {
         compositeDisposable.add(
             disposable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(
-                {
-                    roomSuccess.value = msg
-                },
-                { error.value = "failed" })
+                { roomSuccess.value = msg },
+                { error.value = "room failed" })
         )
     }
 
@@ -64,26 +67,22 @@ abstract class BaseViewModel(val application: Application) : ViewModel() {
 
     }
 
-//    fun tokenDisposable() {
-//        compositeDisposable.add(
-//            tokenRepository.getToken().subscribeOn(Schedulers.io()).observeOn(
-//                AndroidSchedulers.mainThread()
-//            ).subscribeWith(TokenDisposableSingleObserver())
-//        )
-//    }
+    fun tokenDisposable() {
+        compositeDisposable.add(tokenRepository.getToken().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(TokenDisposableSingleObserver()))
+    }
 
-//    inner class TokenDisposableSingleObserver : DisposableSingleObserver<Token>() {
-//        override fun onSuccess(t: Token) {
-//            Log.d("Success", "${t.token}")
-//            TokenObject.token = t.token
-//            success.call()
-//        }
-//
-//        override fun onError(e: Throwable) {
-//            Log.d("Error", "${e.message}")
-//            success.call()
-//        }
-//    }
+    inner class TokenDisposableSingleObserver : DisposableSingleObserver<Token>() {
+        override fun onSuccess(t: Token) {
+            Log.d("Success", t.token)
+            TokenObject.token = t.token
+            tokenSuccess.call()
+        }
+
+        override fun onError(e: Throwable) {
+            Log.d("Error", "${e.message}")
+            tokenError.value = e.message
+        }
+    }
 
     fun filterResponseWithMsg(t: Any) {
         t as retrofit2.Response<Response<String>>

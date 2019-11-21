@@ -1,5 +1,10 @@
 package com.example.reserve.di
 
+import com.example.reserve.network.api.UserApi
+import com.example.reserve.network.response.TokenResponse
+import com.example.reserve.network.service.UserService
+import com.example.reserve.network.service.UserServiceImpl
+import com.example.reserve.room.repository.TokenRepository
 import com.example.reserve.ui.login.LoginActivityViewModel
 import com.example.reserve.ui.main.MainActivityViewModel
 import com.example.reserve.utils.BASE_URL
@@ -16,12 +21,14 @@ val retrofit: Retrofit = Retrofit
     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
     .build()
 
-val networkModule = module {
+private val userApi: UserApi = retrofit.create(UserApi::class.java)
 
+val networkModule = module {
+    single { userApi }
 }
 
 var serviceModel = module {
-
+    factory<UserService> { UserServiceImpl(get()) }
 }
 
 var viewModelPart = module {
@@ -34,9 +41,7 @@ var adapterPart = module {
 }
 
 var repositoryPart = module {
-    factory {
-
-    }
+    factory { TokenRepository(get()) }
 }
 
 var myDiModule = listOf(viewModelPart, networkModule, serviceModel, adapterPart, repositoryPart)
