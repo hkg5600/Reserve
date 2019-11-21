@@ -46,7 +46,9 @@
                 android:layout_marginTop="250dp"
                 android:layout_marginStart="50dp"
                 android:layout_marginEnd="20dp"
-                android:background="@android:color/transparent"/>
+                android:background="@android:color/transparent"
+                android:scaleType="center"
+                android:adjustViewBounds="true"/>
 
             <ImageButton
                 android:id="@+id/button_add_point"
@@ -60,7 +62,9 @@
                 android:layout_marginTop="250dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="50dp"
-                android:background="@android:color/transparent"/>
+                android:background="@android:color/transparent"
+                android:scaleType="center"
+                android:adjustViewBounds="true"/>
 
 
             <ImageButton
@@ -74,8 +78,11 @@
                 android:src="@drawable/main_my_page_icon"
                 android:layout_marginBottom="150dp"
                 android:layout_marginStart="50dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                android:background="@android:color/transparent"/>
+                android:background="@android:color/transparent"
+                android:scaleType="center"
+                android:adjustViewBounds="true"/>
 
             <ImageButton
                 android:id="@+id/button_reservation_list"
@@ -86,10 +93,13 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginBottom="150dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="50dp"
                 android:src="@drawable/main_reservation_list_icon"
-                android:background="@android:color/transparent"/>
+                android:background="@android:color/transparent"
+                android:scaleType="center"
+                android:adjustViewBounds="true"/>
 
 
             <ImageView

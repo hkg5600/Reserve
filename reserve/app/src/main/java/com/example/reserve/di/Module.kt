@@ -41,7 +41,7 @@ var serviceModel = module {
 }
 
 var viewModelPart = module {
-    viewModel { MainActivityViewModel(get()) }
+    viewModel { MainActivityViewModel(get(), get()) }
     viewModel { LoginActivityViewModel(get(), get()) }
     viewModel { RegisterActivityViewModel(get(), get()) }
     viewModel { SplashActivityViewModel(get(), get()) }
