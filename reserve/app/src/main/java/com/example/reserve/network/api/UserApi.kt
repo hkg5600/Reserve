@@ -5,6 +5,7 @@ import com.example.reserve.network.request.UserLogin
 import com.example.reserve.network.request.UserPoint
 import com.example.reserve.network.response.TokenResponse
 import com.example.reserve.network.response.UserInfo
+import com.example.reserve.network.response.VerifyToken
 import io.reactivex.Single
 import retrofit2.http.*
 
@@ -21,4 +22,7 @@ interface UserApi {
 
     @PUT("/user/point")
     fun addUserPoint(@Header("Authorization") token : String, @Body point: UserPoint) : Single<retrofit2.Response<Any>>
+
+    @GET("/util/token")
+    fun verifyToken(@Header("Authorization") token : String) : Single<retrofit2.Response<VerifyToken>>
 }

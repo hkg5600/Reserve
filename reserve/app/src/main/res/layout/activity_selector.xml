@@ -16,13 +16,16 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/box_register"
-                android:layout_width="150dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="178dp"
                 android:background="@color/coral"
-                app:layout_constraintEnd_toStartOf="@+id/box_empty2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/box_login"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="20dp">
 
                 <ImageButton
                     android:id="@+id/button_register"
@@ -41,25 +44,28 @@
                     android:id="@+id/text_view_register"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
                     android:lineSpacingExtra="4sp"
+                    android:text="회원가입"
                     android:textColor="#ffffff"
                     android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/button_register"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    tools:text="회원가입" />
-
+                    app:layout_constraintTop_toBottomOf="@+id/button_register" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/box_login"
-                android:layout_width="150dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:background="@color/coral"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/box_empty2"
-                app:layout_constraintStart_toEndOf="@+id/box_empty1">
+                app:layout_constraintStart_toEndOf="@+id/box_register"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="30dp">
 
                 <ImageButton
                     android:id="@+id/button_login"
@@ -78,47 +84,25 @@
                     android:id="@+id/text_view_login"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
                     android:lineSpacingExtra="4sp"
+                    android:text="로그인"
                     android:textColor="#ffffff"
                     android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/button_login"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    tools:text="로그인" />
+                    app:layout_constraintTop_toBottomOf="@+id/button_login" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/box_empty1"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:background="#70FFFFFF"
-                android:layout_marginStart="20dp"
-                app:layout_constraintEnd_toStartOf="@+id/box_login"
-                app:layout_constraintTop_toBottomOf="@+id/box_register"
-                app:layout_constraintStart_toStartOf="parent"
-                android:elevation="10dp"/>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/box_empty2"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_marginTop="172dp"
-                android:elevation="10dp"
-                android:background="#70FFFFFF"
-                android:layout_marginEnd="20dp"
-                app:layout_constraintBottom_toTopOf="@+id/box_login"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/box_register"
-                app:layout_constraintTop_toTopOf="parent" />
-
             <ImageView
                 android:id="@+id/image_view_logo"
-                android:layout_width="204dp"
-                android:layout_height="109dp"
+                android:layout_width="214dp"
+                android:layout_height="95dp"
                 android:layout_marginBottom="36dp"
-                android:src="@drawable/start_logo"
+                android:adjustViewBounds="true"
+                android:src="@drawable/top_logo_fix"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />

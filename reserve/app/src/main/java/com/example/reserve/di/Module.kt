@@ -44,7 +44,7 @@ var viewModelPart = module {
     viewModel { MainActivityViewModel(get()) }
     viewModel { LoginActivityViewModel(get(), get()) }
     viewModel { RegisterActivityViewModel(get(), get()) }
-    viewModel { SplashActivityViewModel(get()) }
+    viewModel { SplashActivityViewModel(get(), get()) }
     viewModel { SelectorActivityViewModel(get()) }
 }
 

@@ -1,3 +1,3 @@
 package com.example.reserve.utils
 
-const val BASE_URL = "http://172.26.0.46:5000"
+const val BASE_URL = "http://52.78.231.247:5555"

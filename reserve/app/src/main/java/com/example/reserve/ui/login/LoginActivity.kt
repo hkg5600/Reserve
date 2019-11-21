@@ -27,8 +27,8 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginActivityViewModel>
             when (it) {
                 is TokenResponse -> {
                     makeToast(it.token, true)
-                    viewModel.insertToken(it.token)
-                    TokenObject.token = it.token
+                    viewModel.insertToken("Bearer ${it.token}")
+                    TokenObject.token = "Bearer ${it.token}"
                 }
             }
         })
