@@ -51,6 +51,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainActivityViewModel>() 
 
     override fun initViewModel() {
         viewDataBinding.vm = viewModel
+        viewModel.getUserInfo()
     }
 
 

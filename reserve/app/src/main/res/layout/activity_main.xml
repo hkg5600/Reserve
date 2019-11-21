@@ -36,8 +36,8 @@
 
             <ImageButton
                 android:id="@+id/button_reservation"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/button_add_point"
@@ -52,8 +52,8 @@
 
             <ImageButton
                 android:id="@+id/button_add_point"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 app:layout_constraintStart_toEndOf="@+id/button_reservation"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -69,8 +69,8 @@
 
             <ImageButton
                 android:id="@+id/button_my_page"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/button_reservation_list"
                 app:layout_constraintTop_toBottomOf="@+id/button_reservation"
@@ -86,8 +86,8 @@
 
             <ImageButton
                 android:id="@+id/button_reservation_list"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 app:layout_constraintStart_toEndOf="@+id/button_my_page"
                 app:layout_constraintTop_toBottomOf="@+id/button_add_point"
                 app:layout_constraintEnd_toEndOf="parent"
