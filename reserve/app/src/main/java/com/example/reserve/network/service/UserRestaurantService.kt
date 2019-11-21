@@ -8,6 +8,7 @@ import com.example.reserve.network.request.MarketName
 import com.example.reserve.network.request.Reservation
 import com.example.reserve.network.response.MarketInfo
 import com.example.reserve.network.response.MarketLIst
+import com.example.reserve.network.response.ReservationDetail
 import com.example.reserve.network.response.ReservationList
 import com.example.reserve.utils.TokenObject
 import io.reactivex.Single
@@ -18,15 +19,17 @@ interface UserRestaurantService {
     fun getMarketInfo(marketId: Int) : Single<Response<MarketInfo>>
     fun searchMarket(marketName: String) : Single<Response<MarketLIst>>
     fun getReservationList() : Single<Response<ReservationList>>
+    fun getDetailReservation(orderId: Int) : Single<Response<ReservationDetail>>
 }
 
 class UserRestaurantServiceImpl(private val api: UserRestaurantApi) : UserRestaurantService {
+    override fun getDetailReservation(orderId: Int) = api.getDetailReservation(TokenObject.token!!, "/service/market/$orderId")
 
     override fun getReservationList() = api.getReservationList(TokenObject.token!!)
 
     override fun searchMarket(marketName: String) = api.searchMarket(TokenObject.token!!, MarketName(marketName))
 
-    override fun getMarketInfo(marketId: Int) = api.getMarketInfo(TokenObject.token!!, "/api/market/$marketId")
+    override fun getMarketInfo(marketId: Int) = api.getMarketInfo(TokenObject.token!!, "/service/market/$marketId")
 
     override fun userReservation(marketId: Int, menu: ArrayList<UserMenu>) = api.userReservation(TokenObject.token!!, Reservation(marketId, menu))
 
