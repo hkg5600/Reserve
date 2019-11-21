@@ -22,7 +22,8 @@
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="m">
-        <activity android:name=".ui.register.RegisterActivity"></activity>
+        <activity android:name=".ui.selector.SelectorActivity"></activity>
+        <activity android:name=".ui.register.RegisterActivity" />
         <activity android:name=".ui.login.LoginActivity" />
         <activity
             android:name=".ui.splash.SplashActivity"
