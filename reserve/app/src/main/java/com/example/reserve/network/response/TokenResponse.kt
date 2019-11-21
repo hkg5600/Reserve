@@ -1,3 +1,5 @@
 package com.example.reserve.network.response
 
-data class TokenResponse(val access_token: String)
+import com.google.gson.annotations.SerializedName
+
+data class TokenResponse(@SerializedName("access_token") val token: String)
