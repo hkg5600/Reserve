@@ -85,16 +85,16 @@ abstract class BaseViewModel(val application: Application) : ViewModel() {
     }
 
     fun filterResponseWithMsg(t: Any) {
-        t as retrofit2.Response<Response<String>>
+        t as retrofit2.Response<String>
         if (t.isSuccessful) {
-            if (t.body()?.status == 200)
-                message.value = t.body()?.message!!
-            else {
-                Log.d("Status", t.body()?.status.toString())
-                error.value = t.body()?.message
+            if (t.code() == 200 || t.code() == 201) {
+                message.value = t.message()
+            } else {
+                Log.d("Response Error: ", t.errorBody().toString())
+                error.value = t.code().toString()
             }
         } else {
-            Log.d("Error Body", t.errorBody().toString())
+            Log.d("Is not Successful: ", t.errorBody().toString())
             error.value = t.message()
         }
     }
@@ -102,7 +102,7 @@ abstract class BaseViewModel(val application: Application) : ViewModel() {
     fun filterResponseWithData(t: Any) {
         t as retrofit2.Response<*>
         if (t.isSuccessful) {
-            if (t.code() == 200) {
+            if (t.code() == 200 || t.code() == 201) {
                 data.value = t.body()
             } else {
                 Log.d("Response Error: ", t.errorBody().toString())
