@@ -3,4 +3,6 @@
     <string name="string_cancel">취소</string>
     <string name="string_yes">확인</string>
     <string name="string_test">테스트</string>
+    <string name="login_text">로그인</string>
+    <string name="text_login">주문하러 가기</string>
 </resources>
