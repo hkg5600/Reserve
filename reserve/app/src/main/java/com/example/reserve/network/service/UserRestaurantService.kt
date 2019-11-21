@@ -25,6 +25,4 @@ class UserRestaurantServiceImpl(private val api: UserRestaurantApi) : UserRestau
 
     override fun userReservation(marketId: Int, menu: ArrayList<UserMenu>) = api.userReservation(TokenObject.token!!, Reservation(marketId, menu))
 
-
-
 }
