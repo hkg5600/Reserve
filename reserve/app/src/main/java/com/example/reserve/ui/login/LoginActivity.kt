@@ -9,6 +9,7 @@ import com.example.reserve.databinding.ActivityLoginBinding
 import com.example.reserve.network.response.TokenResponse
 import com.example.reserve.room.repository.TokenRepository
 import com.example.reserve.ui.main.MainActivity
+import com.example.reserve.utils.TokenObject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginActivity : BaseActivity<ActivityLoginBinding, LoginActivityViewModel>() {
@@ -26,6 +27,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginActivityViewModel>
             when (it) {
                 is TokenResponse -> {
                     viewModel.insertToken(it.token)
+                    TokenObject.token = it.token
                 }
             }
         })

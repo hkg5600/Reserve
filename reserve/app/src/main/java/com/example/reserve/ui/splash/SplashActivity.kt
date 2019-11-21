@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import com.example.reserve.ui.login.LoginActivity
 import com.example.reserve.ui.main.MainActivity
 
 class SplashActivity : AppCompatActivity() {
@@ -16,7 +17,7 @@ class SplashActivity : AppCompatActivity() {
 
     inner class SplashHandler : Runnable {
         override fun run() {
-            startActivity(Intent(applicationContext, MainActivity::class.java))
+            startActivity(Intent(applicationContext, LoginActivity::class.java))
             finish()
         }
 

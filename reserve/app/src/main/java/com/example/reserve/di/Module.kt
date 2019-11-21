@@ -10,6 +10,7 @@ import com.example.reserve.network.service.UserServiceImpl
 import com.example.reserve.room.repository.TokenRepository
 import com.example.reserve.ui.login.LoginActivityViewModel
 import com.example.reserve.ui.main.MainActivityViewModel
+import com.example.reserve.ui.register.RegisterActivityViewModel
 import com.example.reserve.utils.BASE_URL
 import org.koin.androidx.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
@@ -40,6 +41,7 @@ var serviceModel = module {
 var viewModelPart = module {
     viewModel { MainActivityViewModel(get()) }
     viewModel { LoginActivityViewModel(get(), get()) }
+    viewModel { RegisterActivityViewModel(get(), get()) }
 }
 
 var adapterPart = module {
