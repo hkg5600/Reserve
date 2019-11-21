@@ -26,6 +26,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginActivityViewModel>
         viewModel.data.observe(this, Observer {
             when (it) {
                 is TokenResponse -> {
+                    makeToast(it.token, true)
                     viewModel.insertToken(it.token)
                     TokenObject.token = it.token
                 }
@@ -47,7 +48,9 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginActivityViewModel>
     }
 
     override fun initListener() {
-
+        viewDataBinding.imageButtonBack.setOnClickListener {
+            finish()
+        }
     }
 
     override fun initViewModel() {

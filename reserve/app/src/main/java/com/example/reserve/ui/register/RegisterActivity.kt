@@ -1,9 +1,6 @@
 package com.example.reserve.ui.register
 
-import android.app.Instrumentation
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import androidx.lifecycle.Observer
 import com.example.reserve.R
 import com.example.reserve.base.BaseActivity
@@ -34,7 +31,9 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding, RegisterActivityV
     }
 
     override fun initListener() {
-
+        viewDataBinding.imageButtonBack.setOnClickListener {
+            finish()
+        }
     }
 
     override fun initViewModel() {

@@ -26,10 +26,10 @@
                 android:background="@android:color/transparent"
                 android:src="@drawable/back_button"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/text_view_login" />
+                app:layout_constraintTop_toTopOf="parent"/>
 
             <TextView
-                android:id="@+id/text_view_login"
+                android:id="@+id/text_view_register"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -49,15 +49,15 @@
                 tools:text="고객님의 몇가지 정보가 필요합니다!"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="117dp"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_register"
+                android:layout_marginTop="50dp"
                 android:textSize="24sp" />
 
             <EditText
                 android:id="@+id/edit_text_id"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:layout_marginTop="192dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginStart="60dp"
                 android:layout_marginEnd="60dp"
                 android:hint="@string/text_id_hint"
@@ -65,7 +65,7 @@
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_login_explain"
                 android:backgroundTint="#000000"/>
 
             <EditText
@@ -73,54 +73,54 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="60dp"
-                android:layout_marginTop="274dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginEnd="60dp"
+                android:backgroundTint="#000000"
                 android:hint="@string/text_password_hint"
                 android:text="@={vm.pw}"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:backgroundTint="#000000"/>
+                app:layout_constraintTop_toBottomOf="@+id/edit_text_id" />
 
             <EditText
                 android:id="@+id/edit_text_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="60dp"
-                android:layout_marginTop="434dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginEnd="60dp"
+                android:backgroundTint="#000000"
                 android:hint="@string/text_name"
                 android:text="@={vm.name}"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:backgroundTint="#000000"/>
+                app:layout_constraintTop_toBottomOf="@+id/edit_text_phone_num" />
 
             <EditText
                 android:id="@+id/edit_text_phone_num"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="60dp"
-                android:layout_marginTop="352dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginEnd="60dp"
                 android:backgroundTint="#000000"
                 android:hint="@string/text_phone_number"
+                android:inputType="phone"
                 android:text="@={vm.phoneNum}"
                 android:textSize="20sp"
-                android:inputType="phone"
                 app:layout_anchor="@+id/page_holder"
                 app:layout_anchorGravity="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toBottomOf="@+id/edit_text_pw" />
 
             <TextView
                 android:id="@+id/button_register"
                 android:layout_width="168dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="532dp"
+                android:layout_marginTop="50dp"
                 android:background="@drawable/login_button_background"
                 android:clickable="true"
                 android:focusable="true"
@@ -131,7 +131,7 @@
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/edit_text_name" />
 
             <ImageView
                 android:id="@+id/image_view_logo"

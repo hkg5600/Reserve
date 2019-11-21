@@ -10,8 +10,7 @@ class RegisterActivityViewModel(application: Application , private val userServi
     val id = ObservableField<String>()
     val pw = ObservableField<String>()
     val name = ObservableField<String>()
-    val type = ObservableField<Int>()
     val phoneNum = ObservableField<String>()
 
-    fun register() = addDisposable(userService.register(id.get()!!, pw.get()!!, name.get()!!, phoneNum.get()!!, type.get()!!), getMsgObserver())
+    fun register() = addDisposable(userService.register(id.get()!!, pw.get()!!, name.get()!!, phoneNum.get()!!, 0), getMsgObserver())
 }
