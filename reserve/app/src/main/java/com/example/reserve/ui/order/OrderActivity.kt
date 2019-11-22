@@ -14,6 +14,13 @@ import androidx.core.app.ComponentActivity.ExtraData
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.view.View
+import com.example.reserve.network.model.UserMenu
+import java.time.LocalDateTime
+import java.time.Month
+import android.app.TimePickerDialog
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import java.util.*
 
 
 class OrderActivity : BaseActivity<ActivityOrderBinding, OrderActivityViewModel>() {
@@ -58,18 +65,59 @@ class OrderActivity : BaseActivity<ActivityOrderBinding, OrderActivityViewModel>
                 }
             }
         })
+
+        viewModel.message.observe(this, Observer {
+            finish()
+        })
     }
 
     override fun initListener() {
         menuAdapter.onItemClickListener = object : MenuListAdapter.OnItemClickListener {
+            @SuppressLint("SetTextI18n", "NewApi")
             override fun onClick(view: View, position: Int, holder: MenuListAdapter.MenuListHolder) {
+                viewDataBinding.textViewTime.setOnClickListener {
+                    val cal = Calendar.getInstance()
+                    val timeSetListener = TimePickerDialog.OnTimeSetListener { timePicker, hour, minute ->
+                        cal.set(Calendar.HOUR_OF_DAY, hour)
+                        cal.set(Calendar.MINUTE, minute)
+                        viewModel.dateTime = LocalDateTime.of(viewDataBinding.datePicker.year, viewDataBinding.datePicker.month, viewDataBinding.datePicker.dayOfMonth, hour, minute)
+                    }
+                    TimePickerDialog(this@OrderActivity, timeSetListener, cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE), true).show()
+                }
                 bottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
+                viewDataBinding.numberPicker.value = 0
+                viewDataBinding.textViewMenuDetailName.text = menuAdapter.menuList[position].menuName
+                viewDataBinding.textViewMenuDetailDes.text = menuAdapter.menuList[position].menuDes
+                viewDataBinding.textViewMenuDetailPrice.text = "${menuAdapter.menuList[position].menuPrice}원"
+                viewDataBinding.numberPicker.minValue = 0
+                viewDataBinding.numberPicker.maxValue = 57
+                viewDataBinding.buttonCheck.setOnClickListener {
+                    if (viewModel.orderList.any { it.name == menuAdapter.menuList[position].menuName }) {
+                        viewModel.orderList.remove(UserMenu(menuAdapter.menuList[position].menuName, menuAdapter.menuList[position].menuPrice))
+                    }
+                    for (index: Int in 0 until viewDataBinding.numberPicker.value) {
+                        viewModel.orderList.add(UserMenu(menuAdapter.menuList[position].menuName, menuAdapter.menuList[position].menuPrice))
+                    }
+                    var price = 0
+                    viewModel.orderList.forEach {
+                        price += it.price
+                    }
+                    viewDataBinding.textViewPrice.text = "${price}원"
+                    bottomSheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
+
+                }
+
+                viewDataBinding.numberPicker.setOnValueChangedListener { numberPicker, i, i2 ->
+                    viewDataBinding.textViewTotalPrice.text = "${(i2 * menuAdapter.menuList[position].menuPrice)}원"
+                }
+
             }
 
         }
     }
 
     override fun initViewModel() {
+        viewModel.marketId = intent.getIntExtra("marketId", -1)
         viewModel.getMarketDetail(intent.getIntExtra("marketId", -1))
         viewDataBinding.vm = viewModel
     }

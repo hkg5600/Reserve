@@ -29,6 +29,10 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding, RegisterActivityV
                 }
             }
         })
+
+        viewModel.message.observe(this, Observer {
+            startActivity(Intent(this, LoginActivity::class.java))
+        })
     }
 
     override fun initListener() {

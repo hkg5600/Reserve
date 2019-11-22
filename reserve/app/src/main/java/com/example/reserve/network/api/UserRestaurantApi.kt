@@ -12,7 +12,7 @@ import retrofit2.http.*
 interface UserRestaurantApi {
 
     @POST("/service/reservation") //유저 예약하기
-    fun userReservation(@Header("Authorization") token: String, menu: Reservation) : Single<retrofit2.Response<Any>>
+    fun userReservation(@Header("Authorization") token: String, @Body menu: Reservation) : Single<retrofit2.Response<Any>>
 
     @GET //매점 상세보기
     fun getMarketInfo(@Header("Authorization") token: String, @Url url: String) : Single<retrofit2.Response<MarketInfo>>

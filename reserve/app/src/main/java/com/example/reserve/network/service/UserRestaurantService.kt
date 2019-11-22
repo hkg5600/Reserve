@@ -13,7 +13,7 @@ import io.reactivex.Single
 import retrofit2.Response
 
 interface UserRestaurantService {
-    fun userReservation(marketId: Int, menu: ArrayList<UserMenu>) : Single<Response<Any>>
+    fun userReservation(marketId: Int, time: Long, menu: ArrayList<UserMenu>) : Single<Response<Any>>
     fun getMarketInfo(marketId: Int) : Single<Response<MarketInfo>>
     fun searchMarket(marketName: String) : Single<Response<MarketList>>
     fun getReservationList() : Single<Response<ReservationList>>
@@ -29,6 +29,6 @@ class UserRestaurantServiceImpl(private val api: UserRestaurantApi) : UserRestau
 
     override fun getMarketInfo(marketId: Int) = api.getMarketInfo(TokenObject.token!!, "/service/market/$marketId")
 
-    override fun userReservation(marketId: Int, menu: ArrayList<UserMenu>) = api.userReservation(TokenObject.token!!, Reservation(marketId, menu))
+    override fun userReservation(marketId: Int, time: Long,menu: ArrayList<UserMenu>) = api.userReservation(TokenObject.token!!, Reservation(marketId, time ,menu))
 
 }
