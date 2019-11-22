@@ -66,7 +66,7 @@ class OrderActivity : BaseActivity<ActivityOrderBinding, OrderActivityViewModel>
             }
         })
 
-        viewModel.message.observe(this, Observer {
+        viewModel.success.observe(this, Observer {
             finish()
         })
     }

@@ -10,6 +10,7 @@ import com.example.reserve.databinding.ActivityMainBinding
 import com.example.reserve.network.response.UserInfo
 import com.example.reserve.ui.register.RegisterActivity
 import com.example.reserve.ui.reservation.ReservationActivity
+import com.example.reserve.ui.reservation_list.ReservationListActivity
 import com.example.reserve.utils.UserObject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -48,7 +49,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainActivityViewModel>() 
         }
 
         viewDataBinding.buttonReservationList.setOnClickListener {
-
+            startActivity(Intent(this, ReservationListActivity::class.java))
         }
     }
 

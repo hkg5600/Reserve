@@ -2,6 +2,7 @@ package com.example.reserve.di
 
 import com.example.reserve.adapter.MarketListAdapter
 import com.example.reserve.adapter.MenuListAdapter
+import com.example.reserve.adapter.ReservationListAdapter
 import com.example.reserve.network.api.UserApi
 import com.example.reserve.network.api.UserRestaurantApi
 import com.example.reserve.network.response.TokenResponse
@@ -15,6 +16,7 @@ import com.example.reserve.ui.main.MainActivityViewModel
 import com.example.reserve.ui.order.OrderActivityViewModel
 import com.example.reserve.ui.register.RegisterActivityViewModel
 import com.example.reserve.ui.reservation.ReservationActivityViewModel
+import com.example.reserve.ui.reservation_list.ReservationListActivityViewModel
 import com.example.reserve.ui.selector.SelectorActivityViewModel
 import com.example.reserve.ui.splash.SplashActivityViewModel
 import com.example.reserve.utils.BASE_URL
@@ -52,12 +54,14 @@ var viewModelPart = module {
     viewModel { SelectorActivityViewModel(get()) }
     viewModel { ReservationActivityViewModel(get(), get()) }
     viewModel { OrderActivityViewModel(get(), get()) }
+    viewModel { ReservationListActivityViewModel(get(), get()) }
 }
 
 
 var adapterPart = module {
     factory { MarketListAdapter() }
     factory { MenuListAdapter() }
+    factory { ReservationListAdapter() }
 }
 
 var repositoryPart = module {

@@ -23,6 +23,6 @@ interface UserRestaurantApi {
     @GET("/service/reservation") // 유저 예약 목록
     fun getReservationList(@Header("Authorization") token: String) : Single<retrofit2.Response<ReservationList>>
 
-    @GET
+    @GET //예약 상세보기
     fun getDetailReservation(@Header("Authorization") token: String, @Url url: String) : Single<retrofit2.Response<ReservationDetail>>
 }
