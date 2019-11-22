@@ -1,6 +1,7 @@
 package com.example.reserve.ui.order
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import androidx.lifecycle.Observer
 import com.example.reserve.R
 import com.example.reserve.adapter.MenuListAdapter
@@ -67,6 +68,7 @@ class OrderActivity : BaseActivity<ActivityOrderBinding, OrderActivityViewModel>
         })
 
         viewModel.success.observe(this, Observer {
+            setResult(Activity.RESULT_OK)
             finish()
         })
     }
