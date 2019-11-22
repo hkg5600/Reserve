@@ -9,6 +9,7 @@ import com.example.reserve.base.BaseActivity
 import com.example.reserve.databinding.ActivityMainBinding
 import com.example.reserve.network.response.UserInfo
 import com.example.reserve.ui.register.RegisterActivity
+import com.example.reserve.ui.reservation.ReservationActivity
 import com.example.reserve.utils.UserObject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -35,7 +36,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainActivityViewModel>() 
 
     override fun initListener() {
         viewDataBinding.buttonReservation.setOnClickListener {
-            startActivity(Intent(this, RegisterActivity::class.java))
+            startActivity(Intent(this, ReservationActivity::class.java))
         }
 
         viewDataBinding.buttonAddPoint.setOnClickListener {

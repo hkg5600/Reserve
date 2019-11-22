@@ -11,11 +11,7 @@ import com.example.reserve.network.model.Market
 
 class MarketListAdapter : RecyclerView.Adapter<MarketListAdapter.MarketListHolder>(){
 
-    private var marketList = ArrayList<Market>()
-
-    fun setMarketList(marketList: ArrayList<Market>) {
-        this.marketList = marketList
-    }
+    var marketList : ArrayList<Market> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = MarketListHolder(DataBindingUtil.inflate(
         LayoutInflater.from(parent.context), R.layout.market_item, parent, false

@@ -16,13 +16,13 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginTop="30dp"
-        android:elevation="10dp">
+        android:layout_marginBottom="3dp"
+        android:background="@drawable/market_item_background">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/holder_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/market_item_background"
             android:elevation="10dp">
 
             <ImageView

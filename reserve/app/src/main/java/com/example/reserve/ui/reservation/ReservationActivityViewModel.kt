@@ -6,6 +6,6 @@ import com.example.reserve.network.service.UserRestaurantService
 
 class ReservationActivityViewModel(application: Application, private val service: UserRestaurantService) : BaseViewModel(application) {
 
-    fun getMarketList() = addDisposable(service.searchMarket(""), getDataObserver())
+    fun getMarketList(name: String) = addDisposable(service.searchMarket(name), getDataObserver())
 
 }
