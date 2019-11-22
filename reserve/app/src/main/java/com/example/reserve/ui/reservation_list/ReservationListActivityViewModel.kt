@@ -8,4 +8,6 @@ class ReservationListActivityViewModel(application: Application,  private val se
 
     fun getReservationList() = addDisposable(service.getReservationList(), getDataObserver())
 
+    fun getDetail(orderId: Int) = addDisposable(service.getDetailReservation(orderId), getDataObserver())
+
 }

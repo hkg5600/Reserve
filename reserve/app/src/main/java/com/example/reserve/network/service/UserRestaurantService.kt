@@ -21,7 +21,7 @@ interface UserRestaurantService {
 }
 
 class UserRestaurantServiceImpl(private val api: UserRestaurantApi) : UserRestaurantService {
-    override fun getDetailReservation(orderId: Int) = api.getDetailReservation(TokenObject.token!!, "/service/market/$orderId")
+    override fun getDetailReservation(orderId: Int) = api.getDetailReservation(TokenObject.token!!, "/service/reservation/$orderId")
 
     override fun getReservationList() = api.getReservationList(TokenObject.token!!)
 
